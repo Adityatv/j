@@ -1,0 +1,46 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="robots" content ="noindex,nofollow">
+ <link href="https://vjs.zencdn.net/7.19.2/video-js.css" rel="stylesheet"></link>
+ <!-- CSS_ADSBLOCK_START -->
+ <link rel="stylesheet" href="https://adblockers.opera-mini.net/css_block/default-domainless.css" type="text/css" />
+ <!-- CSS_ADSBLOCK_END -->
+</head>
+
+<body>
+   <video class="video-js vjs-big-play-centered vjs-theme-sea" controls="" data-setup="{}" fluid="true" id="my-video" poster="" preload="auto">
+      <source src="m3u8Url" type="application/x-mpegURL"></source>
+   </video>
+<script>// Get the M3U8 URL from the query string
+function getM3U8UrlFromQueryString() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get("AADITV");
+}
+
+// Set the source of the video player to the M3U8 URL
+function setVideoSource(m3u8Url) {
+  const m3u8Source = document.getElementById("m3u8Source");
+  m3u8Source.src = m3u8Url;
+}
+
+// Initialize the video player
+function initializePlayer() {
+  const m3u8Url = getM3U8UrlFromQueryString();
+  if (m3u8Url) {
+    setVideoSource(m3u8Url);
+  }
+}
+
+// Initialize the player when the window loads
+window.onload = initializePlayer;</script>
+   <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+   <script src="https://unpkg.com/videojs-contribhls/dist/videojs-contrib-hls.js"></script>
+
+   <script>
+   var player = videojs('my-video');
+   </script>
+
+</body></html>
